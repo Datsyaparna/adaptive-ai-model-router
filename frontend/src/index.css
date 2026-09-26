@@ -1,0 +1,183 @@
+@import "tailwindcss";
+
+:root {
+  --bg-deep: #f8fafc;
+  --bg-card: #ffffff;
+  --bg-card-hover: #ffffff;
+  --border-subtle: #e2e8f0;
+  --border-focus: #10b981;
+  
+  --emerald-accent: #059669;
+  --indigo-accent: #4f46e5;
+  --amber-accent: #d97706;
+  --rose-accent: #e11d48;
+  
+  --text-main: #0f172a;
+  --text-muted: #475569;
+  --text-dim: #94a3b8;
+  
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-heading: 'Outfit', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--bg-deep);
+  background-image: 
+    radial-gradient(ellipse 80% 80% at 50% -20%, rgba(16, 185, 129, 0.05), transparent),
+    radial-gradient(ellipse 60% 60% at 90% 80%, rgba(79, 70, 229, 0.04), transparent);
+  background-attachment: fixed;
+  color: var(--text-main);
+  font-family: var(--font-sans);
+  line-height: 1.5;
+  min-height: 100vh;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  letter-spacing: -0.02em;
+  color: #0f172a;
+}
+
+/* Pro Clean White Panel */
+.glass-panel {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 16px;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05), 0 1px 2px -1px rgba(0, 0, 0, 0.05);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-panel:hover {
+  border-color: #cbd5e1;
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.08);
+}
+
+.glass-panel-glow {
+  border-color: rgba(16, 185, 129, 0.5);
+  box-shadow: 0 0 20px rgba(16, 185, 129, 0.1);
+}
+
+/* Pro Buttons */
+.btn-primary {
+  background: linear-gradient(135deg, #059669 0%, #047857 100%);
+  color: #ffffff;
+  font-weight: 600;
+  padding: 0.65rem 1.4rem;
+  border-radius: 10px;
+  border: 1px solid rgba(5, 150, 105, 0.3);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  box-shadow: 0 2px 8px rgba(5, 150, 105, 0.25);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px rgba(5, 150, 105, 0.35);
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+}
+
+.btn-secondary {
+  background: #ffffff;
+  color: #334155;
+  border: 1px solid #cbd5e1;
+  padding: 0.5rem 1rem;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  transition: all 0.2s ease;
+}
+
+.btn-secondary:hover {
+  background: #f8fafc;
+  border-color: #94a3b8;
+  color: #0f172a;
+}
+
+/* Preset Pills */
+.preset-pill {
+  background: #f1f5f9;
+  border: 1px solid #e2e8f0;
+  padding: 0.4rem 0.85rem;
+  border-radius: 9999px;
+  cursor: pointer;
+  font-size: 0.825rem;
+  font-weight: 500;
+  color: #475569;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.preset-pill:hover, .preset-pill.active {
+  background: #ecfdf5;
+  border-color: #a7f3d0;
+  color: #047857;
+}
+
+/* Routing Objective Selector */
+.obj-btn {
+  flex: 1;
+  padding: 0.75rem 0.9rem;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+  background: #ffffff;
+  color: #475569;
+  font-weight: 500;
+  cursor: pointer;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.03);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.obj-btn:hover {
+  background: #f8fafc;
+  border-color: #cbd5e1;
+  color: #0f172a;
+}
+
+.obj-btn.active {
+  background: linear-gradient(135deg, #ecfdf5 0%, #eef2ff 100%);
+  border-color: #059669;
+  color: #064e3b;
+  box-shadow: 0 0 12px rgba(5, 150, 105, 0.15);
+}
+
+/* Animations */
+@keyframes pulse-subtle {
+  0%, 100% { box-shadow: 0 0 8px rgba(5, 150, 105, 0.2); }
+  50% { box-shadow: 0 0 18px rgba(5, 150, 105, 0.4); }
+}
+
+.pulse-active {
+  animation: pulse-subtle 2s infinite ease-in-out;
+}
+
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
